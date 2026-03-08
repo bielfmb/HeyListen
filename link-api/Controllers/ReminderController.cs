@@ -12,6 +12,8 @@ public class ReminderController : ControllerBase
 {
     private readonly ReminderService _service = new();
 
+    public ReminderController(ReminderService service) => _service = service;
+    
     [HttpGet]
     public ActionResult<IEnumerable<Reminder>> GetAll() 
                         => Ok(_service.GetAllReminders());
