@@ -1,8 +1,8 @@
 import ReminderItem from './ReminderItem.jsx'
 
 
-const ReminderList = ({ reminderList, deleteReminder }) => {
-    const remindersSorted = reminderList.sort(
+const ReminderList = ({ reminders, deleteReminder }) => {
+    const sortedReminders = [...reminders].sort(
         (a, b) => new Date(a.date) - new Date(b.date)
     )
     let lastDate = null;
@@ -12,23 +12,24 @@ const ReminderList = ({ reminderList, deleteReminder }) => {
             <h2>Lembretes</h2>
 
             <article>
-                {remindersSorted.map(r => {
-                    const showDate = r.date !== lastDate
-                    lastDate = r.date
+                {sortedReminders.map(reminder => {
+                    const showDate = reminder.date !== lastDate
+                    lastDate = reminder.date
 
                     return (
-                        <ul key={r.id}>
+                        <div key={reminder.id}>
                             {showDate &&
                                 <h3>
-                                    {new Date(r.date + 'T00:00:00')
+                                    {new Date(reminder.date + 'T00:00:00')
                                         .toLocaleDateString('pt-BR')}
                                 </h3>}
-
-                            <ReminderItem
-                                item={r}
-                                deleteReminder={deleteReminder}
-                            />
-                        </ul>
+                            <ul>
+                                <ReminderItem
+                                    reminder={reminder}
+                                    deleteReminder={deleteReminder}
+                                />
+                            </ul>
+                        </div>
                     )
                 })}
             </article>

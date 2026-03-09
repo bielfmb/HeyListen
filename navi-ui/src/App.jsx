@@ -1,32 +1,39 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import ReminderForm from './components/ReminderForm'
 import ReminderList from "./components/ReminderList.jsx"
-import "./services/api.js"
+import {
+  deleteReminderFromApi,
+  getRemindersFromApi,
+  postReminderToApi
+} from './services/api.js'
 import './App.css'
-import { deleteReminderFromApi, getRemindersFromApi, postReminder } from './services/api.js'
+
 
 function App() {
   const [reminders, setReminders] = useState([])
 
   async function getReminders() {
+    try {
     const remindersFromApi = await getRemindersFromApi()
+    setReminders(remindersFromApi.data)      
+    } catch (error) {
+      alert(error.response?.data || "Não foi possível carregar os lembretes")
+    }
 
-    setReminders(remindersFromApi.data)
   }
 
   async function createReminder(newReminder) {
     try {
-      await postReminder(newReminder)
+      await postReminderToApi(newReminder)
       getReminders()
     } catch (error) {
       alert(error.response?.data || "Erro ao criar lembrete")
     }
   }
 
-  async function deleteReminder(idToDelete) {
+  async function deleteReminder(id) {
     try {
-      await deleteReminderFromApi(idToDelete)
+      await deleteReminderFromApi(id)
       getReminders()
     } catch (error) {
       alert(error.response?.data || "Erro ao deletar lembrete.")
@@ -36,23 +43,23 @@ function App() {
   useEffect(() => { getReminders() }, [])
 
   return (
-    <body>
+    <>
       <header>
         <h1>Hey, Listen!</h1>
       </header>
 
       <main>
-            <ReminderForm
-              createReminder={createReminder}
-            />
+        <ReminderForm
+          createReminder={createReminder}
+        />
 
-            <ReminderList
-              reminderList={reminders}
-              deleteReminder={deleteReminder}
-            />
+        <ReminderList
+          reminders={reminders}
+          deleteReminder={deleteReminder}
+        />
       </main>
-      
-    </body>
+
+    </>
   )
 }
 

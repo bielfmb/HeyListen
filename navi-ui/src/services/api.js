@@ -5,5 +5,5 @@ const api = axios.create({
 })
 
 export const getRemindersFromApi = () => api.get('/reminder')
-export const postReminder = (data) => api.post('/reminder', data)
+export const postReminderToApi = (data) => api.post('/reminder', data)
 export const deleteReminderFromApi = (id) => api.delete(`/reminder/${id}`)

@@ -1,12 +1,10 @@
-
-const ReminderItem = ({ item, deleteReminder }) => {
+const ReminderItem = ({ reminder, deleteReminder }) => {
     return (
         <li>
-            <span>{item.name}</span>
-            <button 
-                type="submit" 
-                onClick={() => deleteReminder(item.id)}>
-                    
+            <span>{reminder.name}</span>
+            <button
+                type="button"
+                onClick={() => deleteReminder(reminder.id)}>
                 Remover
             </button>
         </li>
