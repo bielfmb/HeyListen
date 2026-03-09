@@ -1,4 +1,5 @@
-import ReminderItem from './ReminderItem.jsx'
+import ReminderItem from '../ReminderItem/ReminderItem.jsx'
+import './ReminderList.css'
 
 
 const ReminderList = ({ reminders, deleteReminder }) => {
@@ -11,7 +12,7 @@ const ReminderList = ({ reminders, deleteReminder }) => {
         <section className='card'>
             <h2>Lembretes</h2>
 
-            <article>
+            <article className='card-list'>
                 {sortedReminders.map(reminder => {
                     const showDate = reminder.date !== lastDate
                     lastDate = reminder.date
@@ -23,7 +24,7 @@ const ReminderList = ({ reminders, deleteReminder }) => {
                                     {new Date(reminder.date + 'T00:00:00')
                                         .toLocaleDateString('pt-BR')}
                                 </h3>}
-                            <ul>
+                            <ul className='reminders-list'>
                                 <ReminderItem
                                     reminder={reminder}
                                     deleteReminder={deleteReminder}

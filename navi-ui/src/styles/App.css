@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Hylia Serif';
+    src: url('../assets/HyliaSerifBeta-Regular.otf') format('truetype');
+}
+
+.header-background {
+    font-size: 2.5rem;
+    margin-top: 30px;
+
+    background: var(--color-gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    border-bottom: 2px solid #fff;
+}
+
+.stylized-font {
+    font-family: 'Hylia Serif', serif;
+    color: #2c2c2c;
+    text-align: center;
+}

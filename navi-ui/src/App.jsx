@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
-import ReminderForm from './components/ReminderForm'
-import ReminderList from "./components/ReminderList.jsx"
+import ReminderForm from './components/ReminderForm/ReminderForm.jsx'
+import ReminderList from "./components/ReminderList/ReminderList.jsx"
 import {
   deleteReminderFromApi,
   getRemindersFromApi,
   postReminderToApi
 } from './services/api.js'
-import './App.css'
+import './styles/App.css'
 
 
 function App() {
@@ -44,8 +44,8 @@ function App() {
 
   return (
     <>
-      <header>
-        <h1>Hey, Listen!</h1>
+      <header className='header-background'>
+        <h1 className='stylized-font'>Hey, Listen!</h1>
       </header>
 
       <main>

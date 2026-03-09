@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./ReminderForm.css"
 
 const ReminderForm = ({ createReminder }) => {
     const [name, setName] = useState('')
@@ -13,22 +14,24 @@ const ReminderForm = ({ createReminder }) => {
     }
 
     return (
-        <section className="container">
+        <section className="card card-form">
             <h2>Crie um Lembrete</h2>
 
-            <form onSubmit={handleSubmit}>
+            <form className="form-container" onSubmit={handleSubmit}>
                 <input
+                    className="form-input"
                     value={name}
                     type="text"
                     onChange={e => setName(e.target.value)}
                     placeholder="Nome"
                 />
                 <input
+                    className="form-input"
                     value={date}
                     type="date"
                     onChange={e => setDate(e.target.value)}
                 />
-                <button type="submit">Criar</button>
+                <button className="form-button" type="submit">Criar</button>
             </form>
         </section>
     )

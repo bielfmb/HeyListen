@@ -1,8 +1,12 @@
+import './ReminderItem.css'
+
+
 const ReminderItem = ({ reminder, deleteReminder }) => {
     return (
-        <li>
-            <span>{reminder.name}</span>
+        <li className='reminder-item'>
+            <span className='reminder-content'>{reminder.name}</span>
             <button
+                className='delete-button'
                 type="button"
                 onClick={() => deleteReminder(reminder.id)}>
                 Remover
