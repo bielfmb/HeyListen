@@ -13,8 +13,10 @@
     flex: 1;
     min-width: 0;
     gap: 12px;
-
     padding: 10px 14px;
+
+    font-weight: bold;
+    font-size: 18px;
 
     border-radius: 6px;
     border-bottom: 1px solid var(--color-accent);
@@ -36,11 +38,12 @@
 
 .delete-button {
     background: transparent;
-    border: 1px solid var(--color-delete);
+    border: 2px solid var(--color-delete);
     color: var(--color-delete);
 
     padding: 4px 10px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: bold;
     border-radius: 4px;
 
     cursor: pointer;

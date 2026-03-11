@@ -11,32 +11,40 @@ import './styles/App.css'
 
 function App() {
   const [reminders, setReminders] = useState([])
+  const [error, setError] = useState(null)
 
-  async function getReminders() {
+  const getReminders = async () => {
     try {
-    const remindersFromApi = await getRemindersFromApi()
-    setReminders(remindersFromApi.data)      
-    } catch (error) {
-      alert(error.response?.data || "Não foi possível carregar os lembretes")
-    }
+      const remindersFromApi = await getRemindersFromApi()
+      setReminders(remindersFromApi.data)
 
+      setError(null)
+    } catch (err) {
+      setError(err.response?.data?.title
+        || err.response?.data
+        || "Não foi possível carregar os lembretes")
+    }
   }
 
-  async function createReminder(newReminder) {
+  const createReminder = async (newReminder) => {
     try {
       await postReminderToApi(newReminder)
-      getReminders()
-    } catch (error) {
-      alert(error.response?.data || "Erro ao criar lembrete")
+      await getReminders()
+    } catch (err) {
+      setError(err.response?.data?.title
+        || err.response?.data
+        || "Erro ao criar lembrete")
     }
   }
 
-  async function deleteReminder(id) {
+  const deleteReminder = async (id) => {
     try {
       await deleteReminderFromApi(id)
-      getReminders()
-    } catch (error) {
-      alert(error.response?.data || "Erro ao deletar lembrete.")
+      await getReminders()
+    } catch (err) {
+      setError(err.response?.data?.title
+        || err.response?.data
+        || "Erro ao deletar lembrete.")
     }
   }
 
@@ -51,6 +59,7 @@ function App() {
       <main>
         <ReminderForm
           createReminder={createReminder}
+          errorMessage={error}
         />
 
         <ReminderList

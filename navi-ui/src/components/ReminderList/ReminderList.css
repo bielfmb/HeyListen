@@ -1,4 +1,8 @@
 .card-list {
+    width: 50%;
+}
+
+.list-container {
     display: flex;
     flex-direction: column;
     width: 100%;
