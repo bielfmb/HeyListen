@@ -55,3 +55,7 @@ npm run dev
 
 > [!NOTE]  
 > You must have [.NET](https://dotnet.microsoft.com/pt-br/download) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed to run the project correctly.
+
+## Credits
+
+The header's font is the "[Hylia Serif](https://artsyomni.com/hyliaserif)", by ArtsyOmni, which is customized typeface, made to recall the one used in *Breath of the Wild*.
