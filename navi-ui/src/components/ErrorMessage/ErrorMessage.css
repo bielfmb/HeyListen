@@ -1,0 +1,23 @@
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    background-color: #ffdddd;
+    border: 1px solid #ff5c5c;
+    border-radius: 6px;
+
+    color: #b30000;
+
+    width: 90%;
+    padding: 4px;
+}
+
+.icon {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: bold;
+}
