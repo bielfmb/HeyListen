@@ -10,7 +10,7 @@ namespace HeyListen.Controllers;
 [Route("api/[controller]")]
 public class ReminderController : ControllerBase
 {
-    private readonly ReminderService _service = new();
+    private readonly ReminderService _service;
 
     public ReminderController(ReminderService service) => _service = service;
     
@@ -27,11 +27,7 @@ public class ReminderController : ControllerBase
 
             return CreatedAtAction(nameof(GetAll), reminder);
         }
-        catch (ArgumentOutOfRangeException ex)
-        {
-            return BadRequest(ex.Message);
-        }
-        catch (ArgumentNullException ex)
+        catch (ArgumentException ex)
         {
             return BadRequest(ex.Message);
         }
@@ -42,7 +38,7 @@ public class ReminderController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public ActionResult<Reminder> Delete(int id)
+    public ActionResult Delete(int id)
     {
         try
         {

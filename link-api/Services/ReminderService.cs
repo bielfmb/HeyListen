@@ -16,26 +16,9 @@ public class ReminderService
 
     public Reminder CreateReminder(ReminderDTO reminderDTO)
     {
-        if (reminderDTO.Date < DateOnly.FromDateTime(DateTime.Today))
-        {
-            throw new ArgumentOutOfRangeException(
-                nameof(reminderDTO.Date), "A data precisa estar no futuro."
-                );
-        }
+        ValidateFutureDate(reminderDTO);
 
-        if (String.IsNullOrWhiteSpace(reminderDTO.Name))
-        {
-            throw new ArgumentNullException(
-                nameof(reminderDTO.Name), "O nome do lembrete não pode ser nulo"
-                );
-        }
-
-        var reminder = new Reminder 
-            {
-                Id = _nextId++, 
-                Name = reminderDTO.Name, 
-                Date = reminderDTO.Date
-            };
+        var reminder = MapToModel(reminderDTO);
 
         _reminders.Add(reminder);
 
@@ -44,13 +27,29 @@ public class ReminderService
 
     public Reminder DeleteReminder(int id)
     {
-        Reminder toDelete = _reminders.Find(r => r.Id == id) 
+        Reminder toBeDeleted = _reminders.Find(r => r.Id == id)
                             ?? throw new KeyNotFoundException(
                                         "O lembrete não foi encontrado"
                                         );
 
-        _reminders.Remove(toDelete);
+        _reminders.Remove(toBeDeleted);
 
-        return toDelete;
+        return toBeDeleted;
+    }
+
+    private static void ValidateFutureDate(ReminderDTO reminderDTO)
+    {
+        if (reminderDTO.Date <= DateOnly.FromDateTime(DateTime.Today))
+            throw new ArgumentException("A data precisa estar no futuro.");
+    }
+
+    private Reminder MapToModel(ReminderDTO reminderDTO)
+    {
+        return new Reminder
+        {
+            Id = _nextId++,
+            Name = reminderDTO.Name,
+            Date = reminderDTO.Date
+        };
     }
 }
