@@ -1,0 +1,56 @@
+.reminder-item {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    gap: 10px;
+}
+
+.reminder-content {
+    display: flex;
+    align-items: center;
+
+    flex: 1;
+    min-width: 0;
+    gap: 12px;
+    padding: 10px 14px;
+
+    font-weight: bold;
+    font-size: 18px;
+
+    border-radius: 6px;
+    border-bottom: 1px solid var(--color-accent);
+    background: rgba(255, 255, 255, 0.05);
+
+    word-break: break-word;
+}
+
+.reminder-content:hover {
+    background-color: var(--color-accent);
+    color: #2c2c2c;
+}
+
+.reminder-content::before {
+    content: "◆";
+    font-size: 0.9rem;
+    font-style: normal;
+}
+
+.delete-button {
+    background: transparent;
+    border: 2px solid var(--color-delete);
+    color: var(--color-delete);
+
+    padding: 4px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 4px;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+    background-color: var(--color-delete);
+    color: white;
+}

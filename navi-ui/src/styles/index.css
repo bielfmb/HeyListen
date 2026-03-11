@@ -1,0 +1,51 @@
+:root {
+    --color-bg-card: rgba(10, 15, 20, 0.85);
+    --color-accent: #00f2ff;
+    --color-gold: #d4af37;
+    --color-font: #e0e0e0;
+    --color-button-bg: rgba(0, 242, 255, 0.1);
+    --color-delete: #ff4d4d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Optima", "Segoe UI", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-font);
+    letter-spacing: 0.08em;
+
+    background: radial-gradient(circle at center, #1a2a2a 0%, #0d1111 100%);
+    background-attachment: fixed;
+}
+
+main {
+    display:flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    
+    width: 70%;
+    margin: 40px auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: var(--color-bg-card);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(0, 242, 255, 0.3);
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+
+    padding: 2rem;
+    margin: 40px auto;
+}

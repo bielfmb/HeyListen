@@ -1,6 +1,6 @@
 @link_api_HostAddress = http://localhost:5147
 
-GET {{link_api_HostAddress}}/weatherforecast/
+GET {{link_api_HostAddress}}/
 Accept: application/json
 
 ###
