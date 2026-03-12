@@ -1,12 +1,12 @@
-import './ReminderItem.css'
+import styles from './ReminderItem.module.css'
 
 
 const ReminderItem = ({ reminder, deleteReminder }) => {
     return (
-        <li className='reminder-item'>
-            <span className='reminder-content'>{reminder.name}</span>
+        <li className={styles.reminderItem}>
+            <span className={styles.reminderContent}>{reminder.name}</span>
             <button
-                className='delete-button'
+                className={styles.deleteButton}
                 type="button"
                 onClick={() => deleteReminder(reminder.id)}>
                 Remover

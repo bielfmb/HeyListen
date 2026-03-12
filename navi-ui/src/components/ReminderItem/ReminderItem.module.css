@@ -1,4 +1,4 @@
-.reminder-item {
+.reminderItem {
     display: flex;
     align-items: center;
 
@@ -6,7 +6,7 @@
     gap: 10px;
 }
 
-.reminder-content {
+.reminderContent {
     display: flex;
     align-items: center;
 
@@ -25,18 +25,18 @@
     word-break: break-word;
 }
 
-.reminder-content:hover {
+.reminderContent:hover {
     background-color: var(--color-accent);
     color: #2c2c2c;
 }
 
-.reminder-content::before {
+.reminderContent::before {
     content: "◆";
     font-size: 0.9rem;
     font-style: normal;
 }
 
-.delete-button {
+.deleteButton {
     background: transparent;
     border: 2px solid var(--color-delete);
     color: var(--color-delete);
@@ -50,7 +50,7 @@
     transition: all 0.2s ease;
 }
 
-.delete-button:hover {
+.deleteButton:hover {
     background-color: var(--color-delete);
     color: white;
 }
