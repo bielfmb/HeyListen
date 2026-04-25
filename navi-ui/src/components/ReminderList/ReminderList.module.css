@@ -1,8 +1,9 @@
-.card-list {
+.cardList {
+    composes: card from '../../styles/index.css';
     width: 50%;
 }
 
-.list-container {
+.listContainer {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -10,7 +11,7 @@
     padding: 20px;
 }
 
-.reminders-list {
+.remindersList {
     list-style: none;
     width:100%;
 }

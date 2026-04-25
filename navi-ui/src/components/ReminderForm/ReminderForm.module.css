@@ -1,8 +1,9 @@
-.card-form {
+.cardForm {
+    composes: card from '../../styles/index.css';
     max-width: 70%;
 }
 
-.form-container {
+.formContainer {
     display: flex;
     flex-direction: column;
     
@@ -11,7 +12,7 @@
     padding: 30px;
 }
 
-.form-input {
+.formInput {
     align-self: center;
 
     width: 90%;
@@ -21,7 +22,7 @@
     border: 1px solid var(--color-accent);
 }
 
-.form-button {
+.formButton {
     align-self: center;
 
     width: 50%;
@@ -39,7 +40,7 @@
     transition: all 0.2s ease;
 }
 
-.form-button:hover {
+.formButton:hover {
     background-color: var(--color-accent);
     color: black;
     transform: translateY(-1px);

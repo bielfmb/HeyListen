@@ -1,6 +1,6 @@
 import { useState } from "react"
 import ErrorMessage from "../ErrorMessage/ErrorMessage.jsx"
-import "./ReminderForm.css"
+import styles from "./ReminderForm.module.css"
 
 const ReminderForm = ({ createReminder, errorMessage }) => {
     const [name, setName] = useState('')
@@ -15,14 +15,14 @@ const ReminderForm = ({ createReminder, errorMessage }) => {
     }
 
     return (
-        <section className="card card-form">
+        <section className={styles.cardForm}>
             <h2>Crie um Lembrete</h2>
 
-            <form className="form-container" onSubmit={handleSubmit}>
+            <form className={styles.formContainer} onSubmit={handleSubmit}>
                 <label>
                     Descrição
                     <input
-                        className="form-input"
+                        className={styles.formInput}
                         value={name}
                         type="text"
                         required
@@ -34,7 +34,7 @@ const ReminderForm = ({ createReminder, errorMessage }) => {
                 <label>
                     Data
                     <input
-                        className="form-input"
+                        className={styles.formInput}
                         value={date}
                         type="date"
                         required
@@ -44,7 +44,11 @@ const ReminderForm = ({ createReminder, errorMessage }) => {
 
                 <ErrorMessage message={errorMessage} />
 
-                <button className="form-button" type="submit">Criar</button>
+                <button
+                    className={styles.formButton}
+                    type="submit">
+                    Criar
+                </button>
             </form>
         </section>
     )
