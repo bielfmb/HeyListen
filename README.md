@@ -21,7 +21,7 @@ The theme of the whole system (like its name and interface elements) is a tribut
 ## Features
 
 - Create, list and remove reminders
-- Reminders automatically sorted by date
+- Reminders are listed in the order they were created
 - Prevents reminders  with empty descriptions or set to the current or a past date to be created
 - Responsive interface
 
@@ -35,7 +35,22 @@ In the Frontend, the application is organized inside the source folder, with **C
 
 - Database persistence
 - Update Reminders
-- Automated tests
+
+## Tests
+
+The backend tests cover the reminder service, API routes and application startup.
+
+Run the test suite with:
+
+```
+dotnet test link-api.Tests/link-api.Tests.csproj
+```
+
+To collect line coverage with Coverlet, run:
+
+```
+dotnet test link-api.Tests/link-api.Tests.csproj --collect:"XPlat Code Coverage"
+```
 
 ## How to run
 
