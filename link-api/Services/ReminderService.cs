@@ -17,6 +17,7 @@ public class ReminderService
     public Reminder CreateReminder(ReminderDTO reminderDTO)
     {
         ValidateFutureDate(reminderDTO);
+        ValidateName(reminderDTO);
 
         var reminder = MapToModel(reminderDTO);
 
@@ -41,6 +42,12 @@ public class ReminderService
     {
         if (reminderDTO.Date <= DateOnly.FromDateTime(DateTime.Today))
             throw new ArgumentException("A data precisa estar no futuro.");
+    }
+
+    private static void ValidateName(ReminderDTO reminderDTO)
+    {
+        if (string.IsNullOrWhiteSpace(reminderDTO.Name))
+            throw new ArgumentNullException("O lembrete precisa ter uma descrição.");
     }
 
     private Reminder MapToModel(ReminderDTO reminderDTO)
